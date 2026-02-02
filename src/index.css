@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+@keyframes entrance3d {
+    0% {
+        opacity: 0;
+        transform: scale(0.5) translateY(20px) rotateX(10deg) rotateY(-10deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotateX(0) rotateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-3d-entrance {
+    animation: entrance3d 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards, float 6s ease-in-out infinite 0.8s;
+    will-change: transform, opacity;
+}
+
+/* Static version of entrance (no loop) */
+.animate-3d-entrance-static {
+    animation: entrance3d 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
+    will-change: transform, opacity;
+}
+
+.animate-fade-in-delayed {
+    animation: fadeIn 0.5s ease-out 0.6s backwards;
+}
+
+@keyframes rotateY-slow {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes inOut {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.5);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-rotate-slow {
+    animation: float 6s ease-in-out infinite 0.8s, rotateY-slow 10s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.animate-in-out {
+    animation: inOut 0.5s ease-in-out forwards;
+}
+
+/* New classes for Home Icon sequence */
+.animate-float-continuous {
+    animation: float 6s ease-in-out infinite 0.8s;
+}
+
+.animate-entrance-spin {
+    animation: entrance3d 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards, rotateY-slow 10s linear infinite 0.8s;
+    transform-style: preserve-3d;
+}
+
+/* Spin animation for click (faster or just standard) */
+.animate-spin-active {
+    animation: rotateY-slow 3s linear infinite;
+    /* Sped up to 3s for better visibility during 1s click */
+    transform-style: preserve-3d;
+}
+
+@keyframes pulse-bright {
+
+    0%,
+    100% {
+        filter: brightness(1) contrast(1);
+    }
+
+    50% {
+        filter: brightness(1.75) contrast(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+    }
+}
+
+.animate-pulse-bright {
+    animation: pulse-bright 1s ease-in-out infinite;
+}
