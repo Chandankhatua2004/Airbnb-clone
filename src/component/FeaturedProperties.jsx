@@ -4,21 +4,10 @@ import PropertyCard from './PropertyCard';
 import SeeAllCard from './SeeAllCard';
 import { PROPERTIES_DATA } from '../data/mockData';
 
-/**
- * PropertySection Component
- * Renders a horizontal scrolling section of properties with a title and navigation controls.
- * 
- * @param {Object} props
- * @param {string} props.title - Title of the section.
- * @param {Object[]} props.items - Array of property items to display.
- */
+
 const PropertySection = ({ title, items }) => {
     const scrollContainerRef = useRef(null);
 
-    /**
-     * Handles horizontal scrolling of the property list.
-     * @param {string} direction - 'left' or 'right'
-     */
     const scroll = (direction) => {
         if (scrollContainerRef.current) {
             const scrollAmount = 240; // Approx width of one card + gap
