@@ -129,7 +129,7 @@ const Navbar = () => {
             </div>
 
             {/* --- Search Bar --- */}
-            <div className={`flex justify-center w-full transition-all duration-300 ${isScrolled ? 'sm:absolute sm:top-0 sm:left-0 sm:right-0 sm:h-24 sm:items-center sm:z-10 sm:pointer-events-none mt-2 sm:mt-0' : 'mt-2'}`}>
+            <div className={`flex justify-center w-full transition-all duration-300 ${isScrolled ? 'absolute top-0 left-0 right-0 h-24 items-center z-10 pointer-events-none' : 'mt-2'}`}>
                 <SearchBar isScrolled={isScrolled} icon={tabs.find(t => t.name === activeTab)?.icon || homeIcon} />
             </div>
 
